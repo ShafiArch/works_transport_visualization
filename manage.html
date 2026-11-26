@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Manage videos · Transport Visualization</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='6' width='28' height='20' rx='3' fill='%23c4512f'/%3E%3Cpath d='M13 11v10l9-5z' fill='%23fff'/%3E%3C/svg%3E">
+  <script>
+    (function () { var t = "trace"; try { t = localStorage.getItem("site-theme") || t; } catch (e) {}
+      document.documentElement.dataset.theme = /^(trace|night|clay)$/.test(t) ? t : "trace"; })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+  <link rel="stylesheet" href="assets/site.css?v=1">
+  <link rel="stylesheet" href="assets/manage.css?v=1">
+</head>
+<body class="page-manage">
+  <header class="top">
+    <a class="name" href="./">Transport Visualization</a><span class="count">Video manager</span>
+    <span class="grow"></span>
+    <span class="m-status" data-status></span>
+    <span data-gh></span>
+  </header>
+  <main class="wrap m-main">
+    <section class="m-add">
+      <h1>Add renders</h1>
+      <p class="m-muted">Paste YouTube links, one or many at once (youtu.be, watch, shorts or embed links all work). Titles come from YouTube; you can change them below.</p>
+      <div class="m-paste">
+        <textarea data-paste rows="3" placeholder="https://youtu.be/..." spellcheck="false"></textarea>
+        <button type="button" class="m-btn m-primary" data-add>Add</button>
+      </div>
+      <p class="m-msg" data-msg></p>
+    </section>
+
+    <section>
+      <div class="m-head">
+        <h2>Renders <span class="m-muted" data-n></span></h2>
+        <p class="m-muted">The order here is the order on the page. Drag a row, or use the arrows. The starred render is shown large at the top.</p>
+      </div>
+      <ol class="m-rows" data-rows></ol>
+      <datalist id="tag-list" data-tags></datalist>
+    </section>
+
+    <section class="m-settings">
+      <h2>Page</h2>
+      <label class="m-field"><span>Title</span><input data-set="title"></label>
+      <label class="m-field"><span>Introduction</span><textarea data-set="intro" rows="2"></textarea></label>
+    </section>
+
+    <div class="m-actions">
+      <button type="button" class="m-btn" data-discard>Discard changes</button>
+      <span class="grow"></span>
+      <a class="m-btn" href="./" target="_blank" rel="noopener">Open the page</a>
+      <button type="button" class="m-btn" data-download>Download videos.json</button>
+      <button type="button" class="m-btn m-primary" data-publish>Publish</button>
+    </div>
+  </main>
+  <script src="assets/github.js?v=1"></script>
+  <script src="assets/manage.js?v=1"></script>
+</body>
+</html>

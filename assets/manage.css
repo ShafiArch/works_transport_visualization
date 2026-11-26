@@ -1,0 +1,72 @@
+/* the video manager; layout tokens come from site.css */
+.m-main { max-width: 1100px; padding-bottom: 120px; }
+@media (max-width: 620px) { .m-main { padding-bottom: 190px; } }
+.page-manage h1 { font-size: clamp(28px, 3.4vw, 44px); margin-top: 28px; }
+.page-manage h2 { font-size: 20px; font-weight: 600; margin: 34px 0 4px; }
+.m-muted { color: var(--ink-2); font-size: 13px; }
+.m-status { font-size: 12px; color: var(--accent); white-space: nowrap; }
+.m-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--rule); background: none; cursor: pointer; text-decoration: none; white-space: nowrap; color: var(--ink); }
+.m-btn:hover { border-color: var(--ink-2); }
+.m-btn.m-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.m-btn.m-primary:hover { filter: brightness(1.08); }
+.m-btn:disabled { opacity: 0.5; cursor: default; }
+.m-ghost-bad { color: var(--accent); }
+.m-paste { display: flex; gap: 10px; align-items: stretch; margin-top: 12px; }
+.m-paste textarea { flex: 1; min-width: 0; font: inherit; font-size: 14px; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--shade); color: var(--ink); resize: vertical; }
+.m-paste textarea:focus, .m-field input:focus, .m-field textarea:focus, .m-row input:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
+.m-msg { font-size: 13px; color: var(--ink-2); min-height: 1.4em; margin: 8px 0 0; }
+.m-msg.bad { color: var(--accent); }
+
+.m-rows { list-style: none; padding: 0; margin: 12px 0 0; border-top: 1px solid var(--rule); }
+.m-row { display: grid; grid-template-columns: 22px 30px 160px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--rule); background: var(--bg); }
+.m-row.drag { opacity: 0.4; }
+.m-row.over { box-shadow: inset 0 2px 0 var(--accent); }
+.m-grip { cursor: grab; color: var(--ink-2); text-align: center; user-select: none; font-size: 16px; line-height: 1; touch-action: none; }
+.m-num { font-size: 12px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.m-thumb { aspect-ratio: 16 / 9; border-radius: 3px; overflow: hidden; background: var(--shade); display: block; }
+.m-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.m-fields { display: grid; gap: 6px; min-width: 0; }
+.m-row input { font: inherit; width: 100%; min-width: 0; border: 1px solid transparent; border-bottom-color: var(--rule); background: none; color: var(--ink); padding: 4px 2px; border-radius: 0; }
+.m-row input.m-title { font-size: 15px; font-weight: 500; }
+.m-row input.m-tags { font-size: 12.5px; color: var(--ink-2); }
+.m-row .m-id { font-size: 11px; color: var(--ink-2); font-family: ui-monospace, Menlo, Consolas, monospace; }
+.m-tools { display: flex; gap: 4px; }
+.m-icon { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--rule); background: none; cursor: pointer; display: inline-grid; place-items: center; font-size: 15px; color: var(--ink-2); }
+.m-icon:hover { border-color: var(--ink-2); color: var(--ink); }
+.m-icon.star[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.m-icon.del:hover { border-color: var(--accent); color: var(--accent); }
+.m-empty { padding: 26px 0; color: var(--ink-2); }
+@media (max-width: 760px) {
+  .m-row { grid-template-columns: 22px 120px minmax(0, 1fr); grid-template-areas: "grip thumb fields" "grip tools tools"; }
+  .m-grip { grid-area: grip; } .m-num { display: none; } .m-thumb { grid-area: thumb; } .m-fields { grid-area: fields; } .m-tools { grid-area: tools; justify-content: flex-end; }
+  .m-paste { flex-direction: column; }
+}
+
+.m-settings { display: grid; gap: 10px; max-width: 720px; }
+.m-field { display: grid; gap: 4px; font-size: 12px; color: var(--ink-2); }
+.m-field input, .m-field textarea { font: inherit; font-size: 14px; color: var(--ink); padding: 8px 10px; border: 1px solid var(--rule); border-radius: 8px; background: var(--shade); }
+.m-actions { position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px var(--gutter); padding-bottom: max(12px, env(safe-area-inset-bottom)); background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--rule); }
+.m-actions .grow { flex: 1; }
+@media (max-width: 620px) { .m-actions .grow { display: none; } .m-actions .m-btn { flex: 1 1 auto; justify-content: center; } }
+
+/* publishing dialog (assets/github.js) */
+.gh-btn.is-on::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #2f9e44; margin-right: 2px; }
+.gh-modal { position: fixed; inset: 0; z-index: 70; background: rgba(0, 0, 0, 0.36); display: grid; place-items: center; padding: 16px; }
+.gh-box { width: min(620px, 100%); max-height: calc(100vh - 32px); display: flex; flex-direction: column; background: var(--bg); color: var(--ink); border-radius: 10px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+.gh-head { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--rule); }
+.gh-head h2 { margin: 0; font-size: 17px; }
+.gh-body { padding: 14px 20px; overflow: auto; font-size: 14px; }
+.gh-body .m-steps { margin: 8px 0 16px; padding-left: 20px; } .gh-body .m-steps li { margin-bottom: 4px; }
+.gh-body .m-field { margin-bottom: 10px; }
+.gh-body .m-label, .gh-body .m-hint { font-size: 12px; color: var(--ink-2); }
+.gh-foot { display: flex; align-items: center; gap: 8px; padding: 14px 20px; border-top: 1px solid var(--rule); }
+.gh-grow { flex: 1; }
+.gh-msg { font-size: 13px; color: var(--ink-2); min-height: 1em; }
+.gh-ok { color: #2f9e44; }
+.gh-files { list-style: none; margin: 4px 0 14px; padding: 0; border: 1px solid var(--rule); border-radius: 6px; }
+.gh-files li { padding: 6px 10px; font-size: 12px; }
+.m-alert { border-left: 3px solid var(--accent); padding: 4px 12px; margin: 0 0 12px; font-size: 13px; }
+.m-check { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+.m-error { color: var(--accent); }
+.m-toast { position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%); z-index: 80; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 999px; font-size: 13px; transition: opacity 0.5s; }
+.m-toast.out { opacity: 0; }

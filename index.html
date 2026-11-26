@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Transport Visualization · Shafiul Islam</title>
+  <meta name="description" content="Animation renders of bridges, roads and transit by Shafiul Islam.">
+  <meta property="og:title" content="Transport Visualization · Shafiul Islam">
+  <meta property="og:description" content="Animation renders of bridges, roads and transit.">
+  <meta property="og:image" content="https://i.ytimg.com/vi/2FMUAB4-5Eg/hqdefault.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='6' width='28' height='20' rx='3' fill='%23c4512f'/%3E%3Cpath d='M13 11v10l9-5z' fill='%23fff'/%3E%3C/svg%3E">
+  <script>
+    /* theme before paint; the same key as the works site, so a visitor's choice carries over */
+    (function () { var t = "trace", q = new URLSearchParams(location.search).get("theme");
+      try { t = localStorage.getItem("site-theme") || t; } catch (e) {}
+      if (/^(trace|night|clay)$/.test(q || "")) t = q;
+      if (!/^(trace|night|clay)$/.test(t)) t = "trace";
+      document.documentElement.dataset.theme = t; })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+  <link rel="stylesheet" href="assets/site.css?v=1">
+</head>
+<body>
+  <header class="top">
+    <a class="name" href="./" data-title>Transport Visualization</a>
+    <span class="count" data-count></span>
+    <span class="grow"></span>
+    <div class="themes" role="group" aria-label="Theme">
+      <button type="button" data-theme="trace">Trace</button><button type="button" data-theme="night">Night</button><button type="button" data-theme="clay">Clay</button>
+    </div>
+    <a class="home" href="https://shafiarch.github.io/works_shafi/">Shafiul Islam</a>
+  </header>
+
+  <main>
+    <section class="wrap lead">
+      <div>
+        <p class="kicker"><b>Animation renders</b>Shafiul Islam</p>
+        <h1 data-title>Transport Visualization</h1>
+        <p class="intro" data-intro></p>
+        <p class="now" data-now></p>
+      </div>
+      <div class="feature" data-feature></div>
+    </section>
+    <section class="wrap">
+      <div class="bar"><h2>All renders</h2><span class="grow"></span><div class="chips" data-chips role="group" aria-label="Filter"></div></div>
+      <div class="grid" data-grid></div>
+    </section>
+  </main>
+
+  <div class="player" data-player role="dialog" aria-modal="true" aria-label="Video player">
+    <button type="button" class="pbtn close" data-close aria-label="Close">&#215;</button>
+    <div class="stage">
+      <div class="frame" data-pframe></div>
+      <div class="info">
+        <button type="button" class="pbtn" data-prev aria-label="Previous">&#8592;</button>
+        <div class="t"><b data-ptitle></b><span data-pmeta></span></div>
+        <a class="yt" data-pyt target="_blank" rel="noopener">Watch on YouTube</a>
+        <button type="button" class="pbtn" data-next aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span>Shafiul Islam · Transport Visualization</span>
+      <span><a href="https://shafiarch.github.io/works_shafi/">Works</a> · <a href="https://shafiarch.github.io/works_flipbook/">Portfolio book</a> · <a href="manage.html">Manage videos</a></span>
+    </div>
+  </footer>
+  <script src="assets/site.js?v=1"></script>
+</body>
+</html>
